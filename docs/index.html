@@ -14,6 +14,11 @@
     <div id="prompt" class="hidden">
         <span>Il sistema è instabile. Vuoi davvero continuare? (S/N)</span>
         <span class="cursor"></span>
+
+        <div class="button-wrapper">
+            <button id="btn-yes">S</button>
+            <button id="btn-no">N</button>
+        </div>
     </div>
 </div>
 
@@ -22,15 +27,21 @@
 </div>
 
 <div id="invite" class="hidden">
-    <h1>Ok, scusa per lo spavento! 😅</h1>
-    <p>Ma c'è solo uno 'spirito' che vorrei evocare questo Halloween... il tuo.</p>
-    <h2>Vuoi essere la mia PUMPKIN? 🎃</h2>
-    <p>(E magari uscire per [LA TUA IDEA DI APPUNTAMENTO] il [DATA]?)</p>
+    <img src="assets/animal-crossing-halloween-announcement-kz6hyxo5ckxzxma8.gif" alt="Ghost" class="invite-deco top-left">
+    <img src="assets/bosco.gif" alt="Bat" class="invite-deco top-right">
+
+    <h1>CIAU MORE, TI SEI CACATA?! 😅</h1>
+    <p>Mi stavo chiedendo una cosa....</p>
+    <h2>Non è che per caso vuoi essere la mia PUMPKIN? 🎃</h2>
+    <p>(Se ti va sei UFFICIALMENTE invitata ad un date il giorno 31/10/2025 presso SIMON PUB SELLIA MARINA)</p>
+
+    <img src="assets/halloween-wallpaper.gif" alt="Small Pumpkin" class="invite-deco bottom-left">
+    <img src="assets/giphy.gif" alt="Your Spooky Face" class="invite-deco bottom-right">
 </div>
 
-<audio id="scare-sound1" src="assets/scream2.mp4" preload="auto"></audio>
+<audio id="invite-sound" src="assets/scream2.mp4" preload="auto"></audio>
 
-<audio id="scare-sound2" src="assets/scream1.mp4" preload="auto"></audio>
+<audio id="scare-sound" src="assets/scream1.mp4" preload="auto"></audio>
 
 
 <script src="script.js"></script>
