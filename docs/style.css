@@ -8,8 +8,8 @@ body, html {
     overflow: hidden; /* Nasconde le scrollbar */
 }
 
-/* NUOVA REGOLA CORRETTA */
-#jumpscare.hidden, #invite.hidden, #prompt.hidden {
+/* REGOLA CORRETTA E COMPLETA */
+#jumpscare.hidden, #invite.hidden, #prompt.hidden, #terminal.hidden {
     display: none;
 }
 
