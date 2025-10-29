@@ -8,13 +8,8 @@ body, html {
     overflow: hidden; /* Nasconde le scrollbar */
 }
 
-/* NUOVA REGOLA CORRETTA */
+/* Regola corretta per nascondere gli elementi all'avvio */
 #jumpscare.hidden, #invite.hidden, #prompt.hidden {
-    display: none;
-}
-
-/* Classe di utilità per nascondere elementi */
-.hidden {
     display: none;
 }
 
@@ -59,11 +54,10 @@ body, html {
 #jumpscare img {
     width: 100%;
     height: 100%;
-    /* 'cover' riempie lo schermo (potrebbe tagliare), 'contain' mostra tutto */
     object-fit: cover;
 }
 
-/* Stile dell'invito finale */
+/* Stile dell'invito finale (BLOCCO UNIFICATO E CORRETTO) */
 #invite {
     position: fixed;
     top: 0;
@@ -74,120 +68,3 @@ body, html {
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 200; /* Sta sopra anche allo jumpscare (dopo) */
-    font-family: 'Arial', sans-serif; /* Cambiamo font per un look più "pulito" */
-}
-
-#invite h1 {
-    font-weight: 300;
-}
-
-#invite h2 {
-    color: #FF6347; /* Un bell'arancione "pumpkin" */
-    font-size: 2.5em;
-}
-
-/* --- Stili per i bottoni S/N --- */
-.button-wrapper {
-    margin-top: 20px; /* Spazio tra il testo e i bottoni */
-}
-
-#btn-yes, #btn-no {
-    background-color: transparent; /* Sfondo trasparente */
-    color: #00FF00; /* Testo verde fosforo */
-    border: 2px solid #00FF00; /* Bordo verde */
-    font-family: 'Consolas', 'Courier New', monospace; /* Stesso font del terminale */
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 10px 25px;
-    margin: 0 10px;
-    cursor: pointer; /* Cursore a manina (per desktop) */
-}
-
-/* Effetto "attivo" quando premuto/cliccato */
-#btn-yes:hover, #btn-no:hover,
-#btn-yes:active, #btn-no:active {
-    background-color: #00FF00; /* Sfondo verde */
-    color: #000; /* Testo nero */
-}
-
-/* --- Stili per l'invito finale (aggiusti questo blocco) --- */
-#invite {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #1a1a1a;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 200;
-    font-family: 'Arial', sans-serif;
-
-    /* AGGIUNGI QUESTA RIGA IMPORTANTISSIMA */
-    position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
-}
-
-/* Stili comuni per tutte le immagini decorative */
-.invite-deco {
-    position: absolute; /* Le posizioniamo liberamente */
-    width: 300px;  /* Dimensione di base (puoi cambiarla) */
-    height: auto; /* Mantiene le proporzioni */
-    z-index: 201; /* Sopra all'invito, ma sotto le scritte */
-}
-
-/* Posizionamento specifico per ogni immagine */
-.top-left {
-    top: 50px; /* Distanza dall'alto */
-    left: 50px; /* Distanza da sinistra */
-    transform: rotate(-15deg); /* Leggera rotazione per effetto "casuale" */
-}
-
-.top-right {
-    top: 50px;
-    right: 50px;
-    transform: rotate(15deg);
-}
-
-.bottom-left {
-    bottom: 50px; /* Distanza dal basso */
-    left: 50px;
-    transform: rotate(5deg);
-    width: 150px;
-
-}
-
-.bottom-right {
-    bottom: 50px;
-    right: 50px;
-    transform: rotate(-5deg);
-}
-
-/* Media query per dispositivi mobili (le facciamo più piccole o le nascondiamo) */
-@media (max-width: 768px) {
-    .invite-deco {
-        width: 50px; /* Più piccole su mobile */
-    }
-
-    .top-left, .top-right {
-        top: 20px; /* Più vicine al bordo */
-        left: 20px;
-        right: 20px;
-    }
-
-    .bottom-left, .bottom-right {
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-    }
-
-    /* Potresti anche decidere di nasconderne alcune su mobile se affollano troppo */
-    /* .bottom-right { display: none; } */
-}
