@@ -157,18 +157,7 @@ body, html {
 */
 @media (max-width: 768px) {
     
-    /* 1. Sistema il prompt e i bottoni */
-    #prompt {
-        width: 90%; 
-    }
-    .button-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #btn-yes, #btn-no {
-        margin: 10px;
-    }
+    
 
     /* 2. Sistema il layout e il testo dell'invito */
     #invite {
