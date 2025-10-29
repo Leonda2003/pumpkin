@@ -8,8 +8,13 @@ body, html {
     overflow: hidden; /* Nasconde le scrollbar */
 }
 
-/* Regola corretta per nascondere gli elementi all'avvio */
+/* NUOVA REGOLA CORRETTA */
 #jumpscare.hidden, #invite.hidden, #prompt.hidden {
+    display: none;
+}
+
+/* Classe di utilità per nascondere elementi */
+.hidden {
     display: none;
 }
 
@@ -49,19 +54,16 @@ body, html {
     height: 100vh; /* 100% dell'altezza della finestra */
     background-color: #000;
     z-index: 100; /* Sta sopra a tutto */
-    
-    /* AGGIUNGI QUESTA RIGA: */
-    display: none; /* Assicura che sia nascosto all'inizio */
 }
 
 #jumpscare img {
     width: 100%;
     height: 100%;
+    /* 'cover' riempie lo schermo (potrebbe tagliare), 'contain' mostra tutto */
     object-fit: cover;
 }
 
-/* Stile dell'invito finale (BLOCCO UNIFICATO E CORRETTO) */
-/* Stile dell'invito finale (BLOCCO UNIFICATO E CORRETTO) */
+/* Stile dell'invito finale */
 #invite {
     position: fixed;
     top: 0;
@@ -77,10 +79,6 @@ body, html {
     text-align: center;
     z-index: 200; /* Sta sopra anche allo jumpscare (dopo) */
     font-family: 'Arial', sans-serif; /* Cambiamo font per un look più "pulito" */
-    position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
-    
-    /* AGGIUNGI QUESTA RIGA: */
-    display: none; /* Assicura che sia nascosto all'inizio */
 }
 
 #invite h1 {
@@ -116,6 +114,27 @@ body, html {
     color: #000; /* Testo nero */
 }
 
+/* --- Stili per l'invito finale (aggiusti questo blocco) --- */
+#invite {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 200;
+    font-family: 'Arial', sans-serif;
+
+    /* AGGIUNGI QUESTA RIGA IMPORTANTISSIMA */
+    position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
+}
+
 /* Stili comuni per tutte le immagini decorative */
 .invite-deco {
     position: absolute; /* Le posizioniamo liberamente */
@@ -142,6 +161,7 @@ body, html {
     left: 50px;
     transform: rotate(5deg);
     width: 150px;
+
 }
 
 .bottom-right {
@@ -150,73 +170,24 @@ body, html {
     transform: rotate(-5deg);
 }
 
-/* ================================================================
---- MEDIA QUERY PER MOBILE (TUTTE LE MODIFICHE SONO QUI SOTTO) ---
-================================================================
-*/
+/* Media query per dispositivi mobili (le facciamo più piccole o le nascondiamo) */
 @media (max-width: 768px) {
-
-    /* 1. Sistema il prompt e i bottoni */
-    #prompt {
-        width: 90%; 
-    }
-    .button-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    #btn-yes, #btn-no {
-        margin: 10px;
-    }
-
-    /* 2. Sistema il layout dell'invito */
-    #invite {
-        /* Aggiunge padding laterale per non far toccare il testo ai bordi */
-        padding-left: 20px;
-        padding-right: 20px;
-        box-sizing: border-box; /* Assicura che il padding non "rompa" la larghezza */
-    }
-    
-    /* 3. Riduci la dimensione dei font dell'invito */
-    #invite h1 {
-        font-size: 1.5em; 
-    }
-    #invite h2 {
-        font-size: 1.8em; 
-    }
-    #invite p {
-        font-size: 0.9em; 
-    }
-
-    /* 4. Sistema le immagini decorative */
     .invite-deco {
-        width: 40px; /* Le facciamo molto più piccole */
+        width: 50px; /* Più piccole su mobile */
     }
 
-    .top-left {
-        top: 15px; /* Più vicine all'angolo */
-        left: 15px;
-    }
-    .top-right {
-        top: 15px;
-        right: 15px;
-    }
-    .bottom-left {
-        bottom: 15px;
-        left: 15px;
-        width: 40px; /* Assicurati che anche questa sia piccola */
-    }
-    .bottom-right {
-        bottom: 15px;
-        right: 15px;
+    .top-left, .top-right {
+        top: 20px; /* Più vicine al bordo */
+        left: 20px;
+        right: 20px;
     }
 
-    /* * OPZIONALE: Se le immagini danno ancora fastidio, 
-     * togli i commenti (/* e */) dalla riga qui sotto per nasconderle.
-     */
-    /*
-    .invite-deco {
-        display: none; 
+    .bottom-left, .bottom-right {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
     }
-    */
+
+    /* Potresti anche decidere di nasconderne alcune su mobile se affollano troppo */
+    /* .bottom-right { display: none; } */
 }
