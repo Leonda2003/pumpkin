@@ -68,3 +68,148 @@ body, html {
     color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 200; /* Sta sopra anche allo jumpscare (dopo) */
+    font-family: 'Arial', sans-serif; /* Cambiamo font per un look più "pulito" */
+    position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
+}
+
+#invite h1 {
+    font-weight: 300;
+}
+
+#invite h2 {
+    color: #FF6347; /* Un bell'arancione "pumpkin" */
+    font-size: 2.5em;
+}
+
+/* --- Stili per i bottoni S/N --- */
+.button-wrapper {
+    margin-top: 20px; /* Spazio tra il testo e i bottoni */
+}
+
+#btn-yes, #btn-no {
+    background-color: transparent; /* Sfondo trasparente */
+    color: #00FF00; /* Testo verde fosforo */
+    border: 2px solid #00FF00; /* Bordo verde */
+    font-family: 'Consolas', 'Courier New', monospace; /* Stesso font del terminale */
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 25px;
+    margin: 0 10px;
+    cursor: pointer; /* Cursore a manina (per desktop) */
+}
+
+/* Effetto "attivo" quando premuto/cliccato */
+#btn-yes:hover, #btn-no:hover,
+#btn-yes:active, #btn-no:active {
+    background-color: #00FF00; /* Sfondo verde */
+    color: #000; /* Testo nero */
+}
+
+/* Stili comuni per tutte le immagini decorative */
+.invite-deco {
+    position: absolute; /* Le posizioniamo liberamente */
+    width: 300px;  /* Dimensione di base (puoi cambiarla) */
+    height: auto; /* Mantiene le proporzioni */
+    z-index: 201; /* Sopra all'invito, ma sotto le scritte */
+}
+
+/* Posizionamento specifico per ogni immagine */
+.top-left {
+    top: 50px; /* Distanza dall'alto */
+    left: 50px; /* Distanza da sinistra */
+    transform: rotate(-15deg); /* Leggera rotazione per effetto "casuale" */
+}
+
+.top-right {
+    top: 50px;
+    right: 50px;
+    transform: rotate(15deg);
+}
+
+.bottom-left {
+    bottom: 50px; /* Distanza dal basso */
+    left: 50px;
+    transform: rotate(5deg);
+    width: 150px;
+}
+
+.bottom-right {
+    bottom: 50px;
+    right: 50px;
+    transform: rotate(-5deg);
+}
+
+/* ================================================================
+--- MEDIA QUERY PER MOBILE (TUTTE LE MODIFICHE SONO QUI SOTTO) ---
+================================================================
+*/
+@media (max-width: 768px) {
+
+    /* 1. Sistema il prompt e i bottoni */
+    #prompt {
+        width: 90%; 
+    }
+    .button-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #btn-yes, #btn-no {
+        margin: 10px;
+    }
+
+    /* 2. Sistema il layout dell'invito */
+    #invite {
+        /* Aggiunge padding laterale per non far toccare il testo ai bordi */
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box; /* Assicura che il padding non "rompa" la larghezza */
+    }
+    
+    /* 3. Riduci la dimensione dei font dell'invito */
+    #invite h1 {
+        font-size: 1.5em; 
+    }
+    #invite h2 {
+        font-size: 1.8em; 
+    }
+    #invite p {
+        font-size: 0.9em; 
+    }
+
+    /* 4. Sistema le immagini decorative */
+    .invite-deco {
+        width: 40px; /* Le facciamo molto più piccole */
+    }
+
+    .top-left {
+        top: 15px; /* Più vicine all'angolo */
+        left: 15px;
+    }
+    .top-right {
+        top: 15px;
+        right: 15px;
+    }
+    .bottom-left {
+        bottom: 15px;
+        left: 15px;
+        width: 40px; /* Assicurati che anche questa sia piccola */
+    }
+    .bottom-right {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* * OPZIONALE: Se le immagini danno ancora fastidio, 
+     * togli i commenti (/* e */) dalla riga qui sotto per nasconderle.
+     */
+    /*
+    .invite-deco {
+        display: none; 
+    }
+    */
+}
