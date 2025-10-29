@@ -49,6 +49,9 @@ body, html {
     height: 100vh; /* 100% dell'altezza della finestra */
     background-color: #000;
     z-index: 100; /* Sta sopra a tutto */
+    
+    /* AGGIUNGI QUESTA RIGA: */
+    display: none; /* Assicura che sia nascosto all'inizio */
 }
 
 #jumpscare img {
@@ -57,6 +60,7 @@ body, html {
     object-fit: cover;
 }
 
+/* Stile dell'invito finale (BLOCCO UNIFICATO E CORRETTO) */
 /* Stile dell'invito finale (BLOCCO UNIFICATO E CORRETTO) */
 #invite {
     position: fixed;
@@ -74,6 +78,9 @@ body, html {
     z-index: 200; /* Sta sopra anche allo jumpscare (dopo) */
     font-family: 'Arial', sans-serif; /* Cambiamo font per un look più "pulito" */
     position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
+    
+    /* AGGIUNGI QUESTA RIGA: */
+    display: none; /* Assicura che sia nascosto all'inizio */
 }
 
 #invite h1 {
