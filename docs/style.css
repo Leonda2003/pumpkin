@@ -14,9 +14,7 @@ body, html {
 }
 
 /* Classe di utilità per nascondere elementi */
-.hidden {
-    display: none;
-}
+/* (l'ho rimossa perché la regola sopra è più specifica e migliore) */
 
 /* Stile del terminale */
 #terminal-content p {
@@ -63,7 +61,7 @@ body, html {
     object-fit: cover;
 }
 
-/* Stile dell'invito finale */
+/* Stile dell'invito finale (UNICO BLOCCO CORRETTO) */
 #invite {
     position: fixed;
     top: 0;
@@ -79,6 +77,9 @@ body, html {
     text-align: center;
     z-index: 200; /* Sta sopra anche allo jumpscare (dopo) */
     font-family: 'Arial', sans-serif; /* Cambiamo font per un look più "pulito" */
+    
+    /* AGGIUNTA LA RIGA PER LE IMMAGINI */
+    position: relative; 
 }
 
 #invite h1 {
@@ -114,26 +115,6 @@ body, html {
     color: #000; /* Testo nero */
 }
 
-/* --- Stili per l'invito finale (aggiusti questo blocco) --- */
-#invite {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #1a1a1a;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 200;
-    font-family: 'Arial', sans-serif;
-
-    /* AGGIUNGI QUESTA RIGA IMPORTANTISSIMA */
-    position: relative; /* Per posizionare le immagini decorative rispetto a questo div */
-}
 
 /* Stili comuni per tutte le immagini decorative */
 .invite-deco {
@@ -170,24 +151,67 @@ body, html {
     transform: rotate(-5deg);
 }
 
-/* Media query per dispositivi mobili (le facciamo più piccole o le nascondiamo) */
+/* ================================================================
+--- MEDIA QUERY PER MOBILE (TUTTE LE MODIFICHE SONO QUI SOTTO) ---
+================================================================
+*/
 @media (max-width: 768px) {
+    
+    /* 1. Sistema il prompt e i bottoni */
+    #prompt {
+        width: 90%; 
+    }
+    .button-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #btn-yes, #btn-no {
+        margin: 10px;
+    }
+
+    /* 2. Sistema il layout e il testo dell'invito */
+    #invite {
+        /* Aggiunge padding laterale per non far toccare il testo ai bordi */
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box; /* Assicura che il padding non "rompa" la larghezza */
+    }
+    
+    #invite h1 {
+        font-size: 1.5em; /* Riduciamo il titolo principale */
+    }
+
+    #invite h2 {
+        font-size: 1.8em; /* Riduciamo "PUMPKIN" */
+    }
+    
+    #invite p {
+        font-size: 0.9em; /* Riduciamo il testo normale */
+    }
+    
+    /* 3. Sistema le immagini decorative */
     .invite-deco {
         width: 50px; /* Più piccole su mobile */
     }
 
-    .top-left, .top-right {
+    .top-left {
         top: 20px; /* Più vicine al bordo */
         left: 20px;
+    }
+    .top-right {
+        top: 20px;
         right: 20px;
     }
 
-    .bottom-left, .bottom-right {
+    .bottom-left {
         bottom: 20px;
         left: 20px;
+        width: 50px; /* Sovrascrive la larghezza di 150px */
+    }
+    
+    .bottom-right {
+        bottom: 20px;
         right: 20px;
     }
-
-    /* Potresti anche decidere di nasconderne alcune su mobile se affollano troppo */
-    /* .bottom-right { display: none; } */
 }
