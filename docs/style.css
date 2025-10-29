@@ -181,7 +181,7 @@ body, html {
     
     /* 3. Sistema le immagini decorative */
     .invite-deco {
-        width: 1400px; /* Più piccole su mobile */
+        width: 140px; /* Più piccole su mobile */
     }
 
     .top-left {
