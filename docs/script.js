@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const promptElement = document.getElementById('prompt');
     const jumpscareElement = document.getElementById('jumpscare');
     const inviteElement = document.getElementById('invite');
-    const soundElement = document.getElementById('scare-sound');
+    const soundElement = document.getElementById('scare-sound1');
 
     // --- 2. Testo del terminale ---
     const lines = [
